@@ -18,19 +18,19 @@ from PyQt5.QtCore import Qt
 
 con = QOpenGLContext()
 # con = QOpenGLContext().currentContext()
-print(con)
 vp = QOpenGLVersionProfile()
 lastok = (None, None)
 for major in (1,2,3,4):
     for minor in range(40):
         try:
-            # vp.setVersion(major, minor)
-            # vp.setProfile(QSurfaceFormat.CoreProfile)
-            # fun = con.versionFunctions(vp)
-            # fun.glClearColor(1.0, 0.5, 1.0, 1.0)
+            vp.setVersion(major, minor)
+            vp.setProfile(QSurfaceFormat.CoreProfile)
+            fun = con.versionFunctions(vp)
+            fun.glClearColor(0.0, 0.0, 0.0)
             # print(major, minor)
             print("{}.{} ok".format(major, minor))
             lastok = (major, minor)
         except Exception as e:
-            print(e)
+            print(e, major, minor)
             pass
+print(lastok)
