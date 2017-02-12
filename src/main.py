@@ -30,7 +30,7 @@ class myGLWidget(QOpenGLWidget):
                     self.vp.setVersion(major, minor)
                     self.vp.setProfile(QSurfaceFormat.CoreProfile)
                     fun = con.versionFunctions(self.vp)
-                    fun.glClearColor(1.0, 0.5, 1.0, 1.0)
+                    fun.glClearColor(0.0, 0.0, 0.0, 1.0)
                     print("{}.{} ok".format(major, minor))
                     lastok = (major, minor)
                 except:
@@ -104,7 +104,7 @@ def main(args):
             app.desktop().availableGeometry()
         )
     )
-    con = QOpenGLContext(app)
+    # con = QOpenGLContext(app)
     gl = myGLWidget(mainWindow)
     mainWindow.setCentralWidget(gl)
     mainWindow.show()
